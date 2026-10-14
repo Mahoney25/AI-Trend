@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>케냐 TVET 사업 한 장 요약</title>
+<meta name="viewport" content="width=1400">
+<!--FONTS-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Nanum+Pen+Script&display=swap">
+<style>
+/* layout: 1400px sheet, hand-drawn cards on pastel paper, one story top to bottom: why -> what -> how -> who -> learn */
+:root{
+  --paper:#FDFBF7;
+  --ink:#4B4560;
+  --pink:#F8C8D4;
+  --peach:#FFD6B0;
+  --butter:#FFEFA0;
+  --mint:#C0EBD3;
+  --sky:#BEE1F7;
+  --lilac:#DCCFF4;
+  --hand:'Nanum Pen Script','Gaegu',cursive;
+  --body:'Gaegu','Nanum Pen Script',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper)}
+body{font-family:var(--body);font-weight:700;color:var(--ink);font-size:24px;line-height:1.35;width:1400px}
+.sheet{position:relative;width:1400px;padding:36px 44px 30px;overflow:hidden;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .5 0 0 0 0 .6 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* shared pieces */
+.card{position:relative;padding:20px 22px}
+.card::before{content:'';position:absolute;inset:0;background:var(--c,#fff);border:4px solid var(--ink);
+  border-radius:30px 14px 32px 16px/16px 32px 14px 30px;filter:url(#crayon);z-index:0}
+.card>*{position:relative;z-index:1}
+.hl{position:relative;z-index:0;white-space:nowrap}
+.hl::before{content:'';position:absolute;left:-6px;right:-6px;top:42%;bottom:-2px;background:var(--h,var(--butter));z-index:-1;filter:url(#crayon);border-radius:10px}
+.hl.pink{--h:var(--pink)}.hl.mint{--h:var(--mint)}.hl.sky{--h:var(--sky)}.hl.lilac{--h:var(--lilac)}.hl.peach{--h:var(--peach)}
+.h2{font-family:var(--hand);font-weight:400;font-size:58px;line-height:1;display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.h2 small{font-family:var(--body);font-weight:700;font-size:23px;opacity:.75}
+.ic{width:56px;height:56px;flex:none;filter:url(#wobble);overflow:visible}
+.ic.s{width:38px;height:38px}
+.ic.l{width:74px;height:74px}
+.s-ink{stroke:var(--ink);stroke-width:3.2;stroke-linejoin:round;stroke-linecap:round}
+.note{font-family:var(--hand);font-weight:400;font-size:30px;line-height:1.1}
+.tilt-l{transform:rotate(-2.2deg)}.tilt-r{transform:rotate(2deg)}
+section{margin-top:26px}
+
+/* header */
+.top{display:grid;grid-template-columns:1fr 290px;gap:20px;align-items:center}
+.kick{display:inline-flex;gap:10px;align-items:center;font-size:24px}
+.pill{position:relative;padding:3px 16px;z-index:0}
+.pill::before{content:'';position:absolute;inset:0;background:var(--c);border:3px solid var(--ink);border-radius:30px;filter:url(#crayon);z-index:-1}
+h1{font-family:var(--hand);font-weight:400;font-size:104px;line-height:.98;margin:8px 0 10px;letter-spacing:-1px}
+.sub{font-size:28px}
+.star{position:relative;width:270px;height:270px;display:grid;place-items:center;text-align:center;transform:rotate(7deg)}
+.star svg{position:absolute;inset:0;width:100%;height:100%;filter:url(#crayon)}
+.star div{position:relative;font-family:var(--hand);font-weight:400;line-height:.95}
+.star b{display:block;font-size:76px;font-weight:400}
+.star span{font-size:38px}
+
+/* chips */
+.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.chip{display:flex;gap:10px;align-items:center;padding:12px 14px}
+.chip .k{font-size:20px;opacity:.7;line-height:1}
+.chip .v{font-size:25px;line-height:1.1}
+
+/* why */
+.whys{display:grid;grid-template-columns:repeat(3,1fr) 1.15fr;gap:18px;align-items:stretch}
+.bubble{text-align:center;padding:16px 14px 14px}
+.bubble .big{font-family:var(--hand);font-weight:400;font-size:92px;line-height:.9}
+.bubble p{font-size:23px;line-height:1.2}
+.bubble .src{display:block;font-size:17px;opacity:.65;margin-top:4px}
+.because{display:flex;flex-direction:column;justify-content:center;gap:6px}
+
+/* what */
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.out h3{font-family:var(--hand);font-weight:400;font-size:42px;line-height:1;margin:6px 0 4px}
+.out .lead{font-size:22px;opacity:.85;margin-bottom:8px}
+.out ul{list-style:none;display:grid;gap:5px}
+.out li{font-size:22px;line-height:1.2;padding-left:26px;position:relative}
+.out li::before{content:'';position:absolute;left:0;top:7px;width:15px;height:15px;background:var(--b,var(--butter));border:2.5px solid var(--ink);border-radius:50% 40% 55% 45%}
+.out .cost{position:absolute;right:-8px;top:-16px;z-index:2;transform:rotate(6deg);padding:2px 14px;font-family:var(--hand);font-weight:400;font-size:34px}
+.out .cost::before{content:'';position:absolute;inset:0;background:var(--butter);border:3px solid var(--ink);border-radius:26px;filter:url(#crayon);z-index:-1}
+.sec5{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.sec5 span{display:flex;align-items:center;gap:4px;font-size:19px;padding:0 8px 0 4px;position:relative;z-index:0}
+.sec5 span::before{content:'';position:absolute;inset:0;background:#fff;border:2.5px solid var(--ink);border-radius:18px;filter:url(#crayon);z-index:-1}
+.sec5 .ic{width:26px;height:26px}
+
+/* flow + goals */
+.row2{display:grid;grid-template-columns:1.05fr 1fr;gap:22px}
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:8px 0 6px}
+.step{text-align:center;padding:6px 10px;font-size:22px;line-height:1.1;position:relative;z-index:0;min-width:84px}
+.step::before{content:'';position:absolute;inset:0;background:var(--c);border:3px solid var(--ink);border-radius:20px 10px 22px 12px;filter:url(#crayon);z-index:-1}
+.step .ic{display:block;margin:0 auto 2px}
+.arr{width:34px;height:24px;flex:none;filter:url(#wobble)}
+.goals{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.goal{text-align:center;padding:8px 6px 6px}
+.goal b{display:block;font-family:var(--hand);font-weight:400;font-size:56px;line-height:.95}
+.goal span{font-size:20px;line-height:1.1;display:block}
+
+/* who / money */
+.row3{display:grid;grid-template-columns:1.2fr 1fr;gap:22px}
+.org{display:grid;gap:8px}
+.org .line{display:flex;align-items:center;justify-content:center;gap:10px}
+.node{position:relative;z-index:0;padding:7px 16px;text-align:center;font-size:23px;line-height:1.15}
+.node::before{content:'';position:absolute;inset:0;background:var(--c,#fff);border:3px solid var(--ink);border-radius:22px 10px 24px 12px;filter:url(#crayon);z-index:-1}
+.node small{display:block;font-size:19px;opacity:.8;font-weight:700}
+.dn{width:30px;height:30px;filter:url(#wobble);margin:-2px auto -2px}
+.bar{display:flex;height:64px;margin:6px 0 12px;position:relative}
+.bar i{display:block;position:relative;z-index:0}
+.bar i::before{content:'';position:absolute;inset:0;background:var(--c);border:3px solid var(--ink);filter:url(#crayon);z-index:-1}
+.legend{display:grid;gap:3px}
+.legend div{display:flex;align-items:center;gap:10px;font-size:22px;line-height:1.1}
+.legend em{font-style:normal;margin-left:auto;font-family:var(--hand);font-weight:400;font-size:30px;white-space:nowrap}
+.sw{width:22px;height:22px;flex:none;background:var(--c);border:3px solid var(--ink);border-radius:6px 3px 7px 4px}
+
+/* learn */
+.row4{display:grid;grid-template-columns:1.15fr 1fr;gap:24px}
+.lesson{display:grid;grid-template-columns:1fr 38px 1fr;gap:6px;align-items:center;margin-bottom:12px}
+.lesson:last-child{margin-bottom:0}
+.lesson .a,.lesson .b{position:relative;z-index:0;padding:8px 12px;font-size:21px;line-height:1.2}
+.lesson .a::before,.lesson .b::before{content:'';position:absolute;inset:0;background:var(--c);border:3px solid var(--ink);border-radius:16px 8px 18px 10px;filter:url(#crayon);z-index:-1}
+.lesson .a small,.lesson .b small{display:block;font-size:17px;opacity:.7}
+.stickies{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+.sticky{position:relative;padding:14px 12px 12px;font-size:21px;line-height:1.2;min-height:150px;z-index:0}
+.sticky::before{content:'';position:absolute;inset:0;background:var(--c);border:3px solid var(--ink);border-radius:6px 14px 8px 16px;filter:url(#crayon);z-index:-1;box-shadow:none}
+.sticky b{display:block;font-family:var(--hand);font-weight:400;font-size:33px;line-height:1;margin-bottom:4px}
+.tape{position:absolute;top:-12px;left:50%;width:70px;height:22px;margin-left:-35px;background:rgba(190,225,247,.85);transform:rotate(-3deg);filter:url(#crayon);z-index:2}
+
+footer{margin-top:22px;font-size:19px;opacity:.75;display:flex;justify-content:space-between;gap:20px;border-top:3px dashed var(--ink);padding-top:10px}
+.doodle{position:absolute;filter:url(#wobble);pointer-events:none}
+</style>
+</head>
+<body>
+
+<!-- shared filters and icon symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="wobble" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="4"/>
+    </filter>
+    <filter id="crayon" x="-4%" y="-6%" width="108%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="2" seed="5" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="9" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="9" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  3.2 0 0 0 -0.62" result="ga"/>
+      <feComposite in="d" in2="ga" operator="in"/>
+    </filter>
+
+    <symbol id="i-leaf" viewBox="0 0 64 64"><g class="s-ink"><path d="M10 54C8 26 28 10 56 10C58 38 44 56 18 56Z" fill="#C0EBD3"/><path d="M12 54C26 40 38 30 50 16" fill="none"/></g></symbol>
+    <symbol id="i-gear" viewBox="0 0 64 64"><g class="s-ink"><circle cx="32" cy="32" r="22" fill="none" stroke-width="7" stroke-dasharray="5.4 4.4"/><circle cx="32" cy="32" r="16" fill="#FFEFA0"/><circle cx="32" cy="32" r="6" fill="#fff"/></g></symbol>
+    <symbol id="i-car" viewBox="0 0 64 64"><g class="s-ink"><path d="M6 42V32L16 22H42L56 34V42Z" fill="#BEE1F7"/><path d="M20 24V34H52M30 24V34" fill="none"/><circle cx="19" cy="44" r="7" fill="#fff"/><circle cx="46" cy="44" r="7" fill="#fff"/></g></symbol>
+    <symbol id="i-hat" viewBox="0 0 64 64"><g class="s-ink"><path d="M10 42C10 24 21 14 32 14C43 14 54 24 54 42Z" fill="#FFEFA0"/><rect x="5" y="42" width="54" height="9" rx="3" fill="#FFD6B0"/><path d="M32 14V30M22 18L25 30M42 18L39 30" fill="none"/></g></symbol>
+    <symbol id="i-bell" viewBox="0 0 64 64"><g class="s-ink"><path d="M9 44C9 26 20 17 32 17C44 17 55 26 55 44Z" fill="#F8C8D4"/><path d="M5 49H59" fill="none"/><circle cx="32" cy="12" r="4" fill="#fff"/></g></symbol>
+    <symbol id="i-bolt" viewBox="0 0 64 64"><g class="s-ink"><path d="M38 5L14 37H30L24 60L50 26H34Z" fill="#FFEFA0"/></g></symbol>
+    <symbol id="i-woman" viewBox="0 0 64 64"><g class="s-ink"><path d="M32 28L14 58H50Z" fill="#F8C8D4"/><circle cx="32" cy="17" r="10" fill="#FFE6D8"/><path d="M22 15C22 6 42 6 42 15C38 11 28 11 22 15Z" fill="#4B4560"/></g></symbol>
+    <symbol id="i-cap" viewBox="0 0 64 64"><g class="s-ink"><path d="M16 32V43C24 51 40 51 48 43V32" fill="#fff"/><path d="M3 24L32 11L61 24L32 37Z" fill="#DCCFF4"/><path d="M56 27V44" fill="none"/></g></symbol>
+    <symbol id="i-book" viewBox="0 0 64 64"><g class="s-ink"><path d="M5 14C17 10 26 12 32 18C38 12 47 10 59 14V50C47 46 38 48 32 54C26 48 17 46 5 50Z" fill="#BEE1F7"/><path d="M32 18V54" fill="none"/></g></symbol>
+    <symbol id="i-school" viewBox="0 0 64 64"><g class="s-ink"><rect x="10" y="26" width="44" height="28" fill="#fff"/><path d="M5 26L32 9L59 26Z" fill="#FFD6B0"/><path d="M20 54V36M32 54V36M44 54V36" fill="none"/></g></symbol>
+    <symbol id="i-factory" viewBox="0 0 64 64"><g class="s-ink"><path d="M6 56V30L22 40V30L38 40V30L54 40V56Z" fill="#C0EBD3"/><path d="M46 38V12H54V42" fill="#fff"/><path d="M14 50H20M28 50H34M42 50H48" fill="none"/></g></symbol>
+    <symbol id="i-coin" viewBox="0 0 64 64"><g class="s-ink"><circle cx="32" cy="32" r="25" fill="#FFEFA0"/><path d="M38 21C34 17 24 18 24 25C24 32 40 31 40 39C40 46 29 47 25 42M32 14V50" fill="none"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 64 64"><g class="s-ink"><path d="M32 58C32 58 12 38 12 26C12 15 21 7 32 7C43 7 52 15 52 26C52 38 32 58 32 58Z" fill="#F8C8D4"/><circle cx="32" cy="26" r="8" fill="#fff"/></g></symbol>
+    <symbol id="i-clock" viewBox="0 0 64 64"><g class="s-ink"><circle cx="32" cy="32" r="25" fill="#BEE1F7"/><path d="M32 16V33L43 40" fill="none"/></g></symbol>
+    <symbol id="i-hands" viewBox="0 0 64 64"><g class="s-ink"><circle cx="20" cy="30" r="14" fill="#BEE1F7"/><circle cx="44" cy="30" r="14" fill="#F8C8D4"/><path d="M30 30H34" fill="none"/><path d="M14 52C16 44 24 44 26 52M38 52C40 44 48 44 50 52" fill="none"/></g></symbol>
+    <symbol id="i-target" viewBox="0 0 64 64"><g class="s-ink"><circle cx="32" cy="32" r="25" fill="#fff"/><circle cx="32" cy="32" r="16" fill="#F8C8D4"/><circle cx="32" cy="32" r="6" fill="#FFEFA0"/><path d="M32 32L56 8" fill="none"/></g></symbol>
+    <symbol id="i-eye" viewBox="0 0 64 64"><g class="s-ink"><path d="M4 32C14 16 50 16 60 32C50 48 14 48 4 32Z" fill="#fff"/><circle cx="32" cy="32" r="9" fill="#DCCFF4"/><circle cx="32" cy="32" r="3" fill="#4B4560"/></g></symbol>
+    <symbol id="i-chart" viewBox="0 0 64 64"><g class="s-ink"><path d="M8 8V56H58" fill="none"/><rect x="16" y="34" width="8" height="22" fill="#C0EBD3"/><rect x="30" y="22" width="8" height="34" fill="#FFEFA0"/><rect x="44" y="12" width="8" height="44" fill="#F8C8D4"/></g></symbol>
+    <symbol id="i-arrow" viewBox="0 0 40 26"><g class="s-ink"><path d="M3 14C12 8 22 18 34 12M26 4L36 12L26 22" fill="none"/></g></symbol>
+    <symbol id="i-down" viewBox="0 0 30 30"><g class="s-ink"><path d="M15 3C12 10 18 16 15 25M7 18L15 27L23 18" fill="none"/></g></symbol>
+  </defs>
+</svg>
+
+<main class="sheet">
+
+  <!-- doodles -->
+  <svg class="doodle" style="left:1010px;top:28px;width:50px;height:50px" viewBox="0 0 50 50"><path class="s-ink" d="M25 4L30 19L46 20L33 30L38 46L25 36L12 46L17 30L4 20L20 19Z" fill="#FFEFA0"/></svg>
+    <svg class="doodle" style="left:1300px;top:1180px;width:60px;height:30px" viewBox="0 0 60 30"><path class="s-ink" d="M3 15C10 3 17 27 24 15C31 3 38 27 45 15C50 7 54 12 57 15" fill="none"/></svg>
+
+  <!-- header -->
+  <header class="top">
+    <div>
+      <div class="kick"><span class="pill" style="--c:var(--sky)">KOICA × GIZ</span><span class="pill" style="--c:var(--pink)">케냐 · TVET</span></div>
+      <h1>건물 대신 <span class="hl">커리큘럼</span>을<br>짓는 사업</h1>
+      <p class="sub"><span class="hl pink">여성 고용</span> 증진 + <span class="hl mint">친환경 산업</span> 활성화를 위한 직업기술교육 훈련사업</p>
+    </div>
+    <div class="star">
+      <svg viewBox="0 0 270 270"><path class="s-ink" fill="#FFEFA0" d="M135 8L158 42L196 24L200 66L242 66L228 106L262 130L228 154L242 194L200 200L196 246L158 228L135 262L112 228L74 246L70 200L28 194L42 154L8 130L42 106L28 66L70 66L74 24L112 42Z"/></svg>
+      <div><span>총사업비</span><b>850만불</b><span>2025 ~ 2027</span></div>
+    </div>
+  </header>
+
+  <!-- at a glance -->
+  <section class="chips">
+    <div class="card chip" style="--c:#fff"><svg class="ic s"><use href="#i-clock"/></svg><div><div class="k">기간</div><div class="v">3년 (2025–27)</div></div></div>
+    <div class="card chip" style="--c:#fff"><svg class="ic s"><use href="#i-pin"/></svg><div><div class="k">대상</div><div class="v">20개 TVET<br>15개 카운티</div></div></div>
+    <div class="card chip" style="--c:#fff"><svg class="ic s"><use href="#i-hands"/></svg><div><div class="k">수행</div><div class="v">GIZ (독일)</div></div></div>
+    <div class="card chip" style="--c:#fff"><svg class="ic s"><use href="#i-hat"/></svg><div><div class="k">성격</div><div class="v">소프트웨어형<br>(건축 없음)</div></div></div>
+    <div class="card chip" style="--c:#fff"><svg class="ic s"><use href="#i-target"/></svg><div><div class="k">SDG</div><div class="v">4번 교육<br>(젠더마커 2)</div></div></div>
+  </section>
+
+  <!-- why -->
+  <section>
+    <h2 class="h2"><svg class="ic"><use href="#i-eye"/></svg>왜 필요할까? <small>케냐 청년 일자리의 현실</small></h2>
+    <div class="whys">
+      <div class="card bubble" style="--c:var(--sky)"><div class="big">35%</div><p>18~34세 청년이<br>실업·불완전 고용</p><span class="src">USAID 2022</span></div>
+      <div class="card bubble" style="--c:var(--pink)"><div class="big">24.3%</div><p>일도 교육도 훈련도<br>없는 젊은 여성</p><span class="src">케냐 통계청 2019</span></div>
+      <div class="card bubble" style="--c:var(--mint)"><div class="big">17%</div><p>제조업 종사자 중<br>여성 비중</p><span class="src">KAM·ICRW 2019</span></div>
+      <div class="because"><div class="note tilt-r">→ 그래서 <span class="hl pink">여성</span>이 <span class="hl mint">친환경 제조업</span>으로<br>일자리를 얻도록 훈련!</div></div>
+    </div>
+  </section>
+
+  <!-- what -->
+  <section>
+    <h2 class="h2"><svg class="ic"><use href="#i-book"/></svg>무엇을 할까? <small>산출물 4가지 (GIZ 약정 707만불)</small></h2>
+    <div class="cards4">
+
+      <div class="card out" style="--c:var(--mint);--b:var(--mint)">
+        <div class="cost">250만불</div>
+        <svg class="ic l"><use href="#i-leaf"/></svg>
+        <h3>① 친환경 커리큘럼</h3>
+        <p class="lead">기업이 원하는 5개 분야</p>
+        <div class="sec5">
+          <span><svg class="ic"><use href="#i-gear"/></svg>산업생산</span>
+          <span><svg class="ic"><use href="#i-car"/></svg>자동차</span>
+          <span><svg class="ic"><use href="#i-hat"/></svg>건설</span>
+          <span><svg class="ic"><use href="#i-bell"/></svg>접객</span>
+          <span><svg class="ic"><use href="#i-bolt"/></svg>에너지</span>
+        </div>
+        <ul><li>CDACC와 공동 개발, TVETA가 승인</li><li>에너지·물 효율, 재생에너지, 순환경제 기초</li></ul>
+      </div>
+
+      <div class="card out" style="--c:var(--sky);--b:var(--sky)">
+        <div class="cost">310만불</div>
+        <svg class="ic l"><use href="#i-factory"/></svg>
+        <h3>② 학교 ⇄ 기업 실습</h3>
+        <p class="lead">C-TVET: 배우고, 일해보고</p>
+        <ul><li>협력 기업 <span class="hl">160곳+</span> 매칭</li><li>훈련생 <span class="hl">3,000명</span> 등록 (청년 80%)</li><li>기업 현장교사가 멘토링·평가</li></ul>
+      </div>
+
+      <div class="card out" style="--c:var(--lilac);--b:var(--lilac)">
+        <div class="cost">58만불</div>
+        <svg class="ic l"><use href="#i-cap"/></svg>
+        <h3>③ 선생님 역량강화</h3>
+        <p class="lead">가르치는 사람이 남아야 지속!</p>
+        <ul><li>교사 ToT <span class="hl lilac">200명</span></li><li>관리자 <span class="hl lilac">24명</span> 한국 벤치마킹 연수 (10일)</li><li>마스터 트레이너 양성</li></ul>
+      </div>
+
+      <div class="card out" style="--c:var(--pink);--b:var(--pink)">
+        <div class="cost">70만불</div>
+        <svg class="ic l"><use href="#i-woman"/></svg>
+        <h3>④ 여성 접근성 ↑</h3>
+        <p class="lead">들어오고, 버티고, 취업하기</p>
+        <ul><li>양성평등위원회 기관별 8회</li><li>커리어 상담 <span class="hl pink">500명</span></li><li>성인지 가이드라인, 지역 홍보 캠페인</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- flow + goals -->
+  <section class="row2">
+    <div class="card" style="--c:#fff">
+      <h2 class="h2" style="font-size:50px;margin-bottom:4px"><svg class="ic"><use href="#i-school"/></svg>이렇게 훈련해요 <small>3개월씩 번갈아</small></h2>
+      <div class="flow">
+        <div class="step" style="--c:var(--peach)"><svg class="ic s"><use href="#i-school"/></svg>학교<br>이론</div>
+        <svg class="arr"><use href="#i-arrow"/></svg>
+        <div class="step" style="--c:var(--mint)"><svg class="ic s"><use href="#i-factory"/></svg>기업<br>실습</div>
+        <svg class="arr"><use href="#i-arrow"/></svg>
+        <div class="step" style="--c:var(--peach)"><svg class="ic s"><use href="#i-school"/></svg>학교<br>이론</div>
+        <svg class="arr"><use href="#i-arrow"/></svg>
+        <div class="step" style="--c:var(--mint)"><svg class="ic s"><use href="#i-factory"/></svg>기업<br>실습</div>
+        <svg class="arr"><use href="#i-arrow"/></svg>
+        <div class="step" style="--c:var(--butter)"><svg class="ic s"><use href="#i-cap"/></svg>취업!</div>
+      </div>
+      <p style="font-size:21px;line-height:1.25">Level 4–5 과정 6~12개월, 총 83개 과정 예상<br><span class="note" style="font-size:28px">기업이 빠지면 안 돌아가는 구조 → 기업 매칭이 핵심 성과</span></p>
+    </div>
+    <div class="card" style="--c:var(--butter)">
+      <h2 class="h2" style="font-size:50px;margin-bottom:8px"><svg class="ic"><use href="#i-target"/></svg>숫자로 보는 목표</h2>
+      <div class="goals">
+        <div class="goal"><b>3,000명</b><span>훈련생</span></div>
+        <div class="goal"><b>1,500명</b><span>그중 여성 목표</span></div>
+        <div class="goal"><b>160곳+</b><span>협력 기업</span></div>
+        <div class="goal"><b>200명</b><span>교사 ToT</span></div>
+        <div class="goal"><b>80%</b><span>취업률</span></div>
+        <div class="goal"><b>90%</b><span>졸업률</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- who + money -->
+  <section class="row3">
+    <div class="card" style="--c:#fff">
+      <h2 class="h2" style="font-size:50px;margin-bottom:8px"><svg class="ic"><use href="#i-hands"/></svg>누가 할까? <small>수행 구조</small></h2>
+      <div class="org">
+        <div class="line">
+          <div class="node" style="--c:var(--sky)">KOICA 케냐사무소<small>재원 · 승인 · 감독</small></div>
+          <svg class="arr" style="width:60px"><use href="#i-arrow"/></svg>
+          <div class="node" style="--c:var(--pink)">GIZ (사업수행자)<small>1975년부터 케냐에서 활동</small></div>
+        </div>
+        <svg class="dn"><use href="#i-down"/></svg>
+        <div class="node" style="--c:var(--butter)">케냐 교육부 총괄<small>CDACC 커리큘럼 · TVETA 승인 · KSTVET 교사연수</small></div>
+        <svg class="dn"><use href="#i-down"/></svg>
+        <div class="line">
+          <div class="node" style="--c:var(--mint)">20개 공립 TVET 기관</div>
+          <svg class="arr" style="width:50px"><use href="#i-arrow"/></svg>
+          <div class="node" style="--c:var(--peach)">협력 기업 160곳+</div>
+        </div>
+        <div class="line" style="margin-top:4px"><svg class="ic s"><use href="#i-eye"/></svg><span class="note" style="font-size:28px">독립 성과관리사가 따로 점검 (기초선·중간선·종료선)</span></div>
+      </div>
+    </div>
+    <div class="card" style="--c:#fff">
+      <h2 class="h2" style="font-size:50px;margin-bottom:4px"><svg class="ic"><use href="#i-coin"/></svg>돈은 어디로? <small>850만불</small></h2>
+      <div class="bar">
+        <i style="flex:29;--c:var(--mint)"></i><i style="flex:36;--c:var(--sky)"></i><i style="flex:7;--c:var(--lilac)"></i><i style="flex:8;--c:var(--pink)"></i><i style="flex:2;--c:var(--peach)"></i><i style="flex:17;--c:var(--butter)"></i>
+      </div>
+      <div class="legend">
+        <div><span class="sw" style="--c:var(--mint)"></span>① 친환경 커리큘럼<em>250만</em></div>
+        <div><span class="sw" style="--c:var(--sky)"></span>② 학교 ⇄ 기업 실습<em>310만</em></div>
+        <div><span class="sw" style="--c:var(--lilac)"></span>③ 교사·관리자 연수<em>58만</em></div>
+        <div><span class="sw" style="--c:var(--pink)"></span>④ 여성 접근성<em>70만</em></div>
+        <div><span class="sw" style="--c:var(--peach)"></span>성과측정·홍보 등<em>19만</em></div>
+        <div><span class="sw" style="--c:var(--butter)"></span>KOICA 관리 · 성과관리 용역<em>143만</em></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- learn + my view -->
+  <section class="row4">
+    <div class="card" style="--c:#fff">
+      <h2 class="h2" style="font-size:50px;margin-bottom:10px"><svg class="ic"><use href="#i-chart"/></svg>지난 사업에서 배운 것 <small>→ 이번 설계</small></h2>
+      <div class="lesson">
+        <div class="a" style="--c:var(--peach)"><small>NITA 사업 (2014–21)</small>취업 연계와 통계가 없어 효과 측정이 어려웠다</div>
+        <svg class="arr" style="width:38px"><use href="#i-arrow"/></svg>
+        <div class="b" style="--c:var(--mint)"><small>이번 설계</small>기업 매칭 + 독립 성과관리 용역</div>
+      </div>
+      <div class="lesson">
+        <div class="a" style="--c:var(--peach)"><small>GIZ 1차 사업 (2021–24)</small>여성 지원이 설계에서 빠져 측정 불가</div>
+        <svg class="arr" style="width:38px"><use href="#i-arrow"/></svg>
+        <div class="b" style="--c:var(--pink)"><small>이번 설계</small>산출물 ④ ‘여성 접근성’ 신설</div>
+      </div>
+    </div>
+    <div>
+      <h2 class="h2" style="font-size:50px;margin-bottom:12px"><svg class="ic"><use href="#i-bolt"/></svg>나라면 이렇게 <small>개선 제안</small></h2>
+      <div class="stickies">
+        <div class="sticky tilt-l" style="--c:var(--butter)"><div class="tape"></div><b>① ‘녹색’ 지표</b>졸업생 중 녹색 직무 취업 비율을 성과지표에 추가</div>
+        <div class="sticky tilt-r" style="--c:var(--mint)"><div class="tape"></div><b>② 추적조사</b>졸업 후 3·6·12개월, 성별로 나눠 취업의 질까지</div>
+        <div class="sticky tilt-l" style="--c:var(--pink)"><div class="tape"></div><b>③ 위험관리</b>여성 중도 포기·실습 기업 역량을 위험표에 추가</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>자료: KOICA 예비조사 결과보고서(집행계획(안) v.1, 2024.1) · 집행계획(안) v.2(2025.2) 바탕으로 직접 정리</span>
+    <span>※ 개선 제안은 작성자 개인 의견입니다</span>
+  </footer>
+</main>
+</body>
+</html>
